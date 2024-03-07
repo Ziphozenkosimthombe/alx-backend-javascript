@@ -166,9 +166,9 @@ bob@dylan:~$
 Implement a class named HolbertonCourse:
 
 - Constructor attributes:
- - name (String)
- - length (Number)
- - students (array of Strings)
+	- name (String)
+ 	- length (Number)
+ 	- students (array of Strings)
 
 - Make sure to verify the type of attributes during object creation
 - Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
@@ -211,4 +211,92 @@ TypeError: Length must be a number
     ...
 bob@dylan:~$ 
 ```
-	
+
+3. Methods, static methods, computed methods names..... MONEY
+
+Implement a class named Currency:
+
+- -Constructor attributes
+	- code (String)
+	- name (String)
+- Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+- Implement a getter and setter for each attribute.
+- Implement a method named displayFullCurrency that will return the attributes in the following format name (code).
+
+```js
+bob@dylan:~$ cat 3-main.js
+import Currency from "./3-currency.js";
+
+const dollar = new Currency('$', 'Dollars');
+console.log(dollar.displayFullCurrency());
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 3-main.js 
+Dollars ($)
+bob@dylan:~$ 
+```
+
+4. Pricing
+
+Import the class Currency from 3-currency.js
+
+- Constructor attributes:
+	- amount (Number)
+	- currency (Currency)
+- Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+- Implement a getter and setter for each attribute.
+- Implement a method named displayFullPrice that returns the attributes in the following format amount currency_name (currency_code).
+- Implement a static method named convertPrice. It should accept two arguments: amount (Number), conversionRate (Number). The function should return the amount multiplied by the conversion rate.
+
+```js
+bob@dylan:~$ cat 4-main.js
+import Pricing from './4-pricing.js';
+import Currency from './3-currency.js';
+
+const p = new Pricing(100, new Currency("EUR", "Euro"))
+console.log(p);
+console.log(p.displayFullPrice());
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 4-main.js 
+Pricing {
+  _amount: 100,
+  _currency: Currency { _code: 'EUR', _name: 'Euro' }
+}
+100 Euro (EUR)
+bob@dylan:~
+```
+
+5. A Building
+Implement a class named Building:
+
+- Constructor attributes:
+	- sqft (Number)
+- Each attribute must be stored in an “underscore” attribute version (ex: name is stored in _name)
+- Implement a getter for each attribute.
+- Consider this class as an abstract class. And make sure that any class that extends from it should implement a method named evacuationWarningMessage.
+	- If a class that extends from it does not have a evacuationWarningMessage method, throw an error with the message Class extending Building must override evacuationWarningMessage
+
+```js
+bob@dylan:~$ cat 5-main.js
+import Building from './5-building.js';
+
+const b = new Building(100);
+console.log(b);
+
+class TestBuilding extends Building {}
+
+try {
+    new TestBuilding(200)
+}
+catch(err) {
+    console.log(err);
+}
+
+bob@dylan:~$ 
+bob@dylan:~$ npm run dev 5-main.js 
+Building { _sqft: 100 }
+Error: Class extending Building must override evacuationWarningMessage
+    ...
+bob@dylan:~$ 
+```
