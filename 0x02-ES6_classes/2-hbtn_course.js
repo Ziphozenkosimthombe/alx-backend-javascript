@@ -1,5 +1,10 @@
 export default class HolbertonCourse {
   constructor(name, length, students) {
+    // verify type during object creation
+    if (typeof name !== 'string' || typeof length !== 'number' || !Array.isArray(students)) {
+      throw new Error('Invalid attribute type');
+    }
+
     this._name = name;
     this._length = length;
     this._students = students;
