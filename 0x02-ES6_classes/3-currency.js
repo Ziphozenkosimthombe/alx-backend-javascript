@@ -1,9 +1,5 @@
 export default class Currency {
   constructor(code, name) {
-    if (typeof code !== 'string' && typeof name !== 'string') {
-      throw new Error('Invalid attribute type');
-    }
-
     this._code = code;
     this._name = name;
   }
@@ -14,7 +10,7 @@ export default class Currency {
 
   set code(value) {
     if (typeof value !== 'string') {
-      throw new Error('Code must be a String');
+      throw new Error('TypeError: Code must be a String');
     }
     this._code = value;
   }
@@ -25,7 +21,7 @@ export default class Currency {
 
   set name(value) {
     if (typeof value !== 'string') {
-      throw new Error('Name must be a String');
+      throw new Error('TypeError: Name must be a String');
     }
     this._name = value;
   }
