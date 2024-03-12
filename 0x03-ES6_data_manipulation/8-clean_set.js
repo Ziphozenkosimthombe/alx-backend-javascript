@@ -24,3 +24,4 @@ export default function cleanSet(set, startString) {
   });
   // return the result
   return result.slice(0, -1);
+}
