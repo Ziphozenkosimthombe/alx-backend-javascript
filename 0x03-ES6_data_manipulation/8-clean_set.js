@@ -7,7 +7,7 @@
  *
  */
 
-function cleanSet(set, startString) {
+export default function cleanSet(set, startString) {
   // check if startString is empty
   if (startString === '') {
     return '';
@@ -24,6 +24,3 @@ function cleanSet(set, startString) {
   });
   // return the result
   return result.slice(0, -1);
-}
-
-export default cleanSet;
