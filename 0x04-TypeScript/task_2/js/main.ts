@@ -76,11 +76,7 @@ class Teacher implements TeacherInterface{
  * */ 
 
 function createEmployee(salary: number | string): Director | Teacher{
-    if (typeof salary === 'number' && salary < 500){
-        return new Teacher();
-    } else {
-        return new Director();
-    }
+    return (typeof salary === 'number' && salary < 500) ? new Teacher() : new Director();
 }
 
 // console.log(createEmployee(200));
@@ -114,11 +110,7 @@ function isDirector(employee: Director |Teacher): employee is Director{
  * */ 
 
 function executeWork(employee: Director | Teacher){
-    if(isDirector(employee)){
-        return employee.workDirectorTasks();
-    } else {
-        return employee.workTeacherTasks();
-    }
+    return (isDirector(employee)) ? employee.workDirectorTasks() : employee.workTeacherTasks();
 }
 
 // console.log(executeWork(createEmployee(200)));
