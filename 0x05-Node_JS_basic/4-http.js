@@ -7,11 +7,11 @@
     ==> display the message on the page
 */ 
 
-const {createServer} = require('http');
+const http = require('http');
 
 const hostname = 'localhost';
 const port = 1245;
-const app = createServer()
+const app = http.createServer();
 
 app.on('request', (req, res) => {
     const message = 'Hello Holberton School!';
@@ -25,3 +25,5 @@ app.on('request', (req, res) => {
 app.listen(port, hostname, () => {
     process.stdout.write(`Server running at http://${hostname}:${port}/`);
 });
+
+module.exports = app;
