@@ -4,8 +4,8 @@
 //will the print in STDOUT the message
 */ 
 
-function displayMessage(message){
-    console.log(message);
-}
-
-module.exports = displayMessage;
+const displayMessage = (msg) => {
+    console.log(msg);
+  };
+  
+  module.exports = displayMessage;
