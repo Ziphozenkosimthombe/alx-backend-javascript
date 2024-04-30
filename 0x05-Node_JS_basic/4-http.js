@@ -11,13 +11,17 @@ const {createServer} = require('http');
 
 const hostname = 'localhost';
 const port = 1245;
+const app = createServer()
 
-const app = createServer((req, res) => {
+app.on('request', (req, res) => {
+    const message = 'Hello Holberton School!';
+
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
-    res.end('Hello Holberton School!');
-})
+    res.setHeader('Content-Length', message.length);
+    res.write(Buffer.from(message));
+});
 
 app.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+    process.stdout.write(`Server running at http://${hostname}:${port}/`);
 });
