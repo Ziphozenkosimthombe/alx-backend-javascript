@@ -1,11 +1,11 @@
 /*
-// function name displayMessage,
-// take one argument message
-//will the print in STDOUT the message
-*/ 
+ ==> function name displayMessage,
+ ==> take one argument message
+ ==> will the print in STDOUT the message
+*/
 
-const displayMessage = (msg) => {
-    console.log(msg);
-  };
-  
-  module.exports = displayMessage;
+const displayMessage = (message) => {
+    console.log(message);
+}
+
+module.exports = displayMessage;
