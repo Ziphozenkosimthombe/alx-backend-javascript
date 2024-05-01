@@ -7,13 +7,14 @@
  ==> when the user ends the program, the program should display the message
 */
 
+
 process.stdout.write('Welcome to Holberton School, what is your name?\n');
 
 process.stdin.on('readable', () => {
   const userName = process.stdin.read();
-    if (userName) {
-      process.stdout.write(`Your name is: ${userName}`);
-}
+  if (userName) {
+    process.stdout.write(`Your name is: ${userName}`);
+  }
 });
 
 process.stdin.on('end', () => {
