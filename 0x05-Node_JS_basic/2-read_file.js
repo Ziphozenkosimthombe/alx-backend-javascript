@@ -1,13 +1,10 @@
-/*
- ==> function name countStudent should accept the a path in argument
- ==> the script attempt should read the database file synchronously
- ==> if database not available the function should throw an error with the message Cannot load the database
- ==> if database is available the function should return the number of students in the database
- ==> It should log the number of students in each field, and the list with the following format: Number of students in FIELD: 6. List: LIST_OF_FIRSTNAMES
- ==> CSV file can contain empty lines (at the end) - and they are not a valid student!
-*/
 const fs = require('fs');
 
+/**
+ * Counts the students in a CSV data file.
+ * @param {String} dataPath The path to the CSV data file.
+ * @author Bezaleel Olakunori <https://github.com/B3zaleel>
+ */
 const countStudents = (dataPath) => {
   if (!fs.existsSync(dataPath)) {
     throw new Error('Cannot load the database');
