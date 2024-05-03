@@ -1,14 +1,14 @@
-const calculateNumber = require('./1-calcul');
-const {expect} = require('chai');
+const { expect } = require('chai');
+const calculateNumber = require('./2-calcul_chai');
 
 describe('calculateNumber', () => {
   describe('type == "SUM"', () => {
     it('equal positive numbers', () => {
-      expect(calculateNumber('SUM', 2.0, 2.0)).to.equal( 4);
+      expect(calculateNumber('SUM', 2.0, 2.0)).to.equal(4);
     });
 
     it('equal positive numbers (alternate)', () => {
-      expect(calculateNumber('SUM', 2.3, 1.8)).to.equal( 4);
+      expect(calculateNumber('SUM', 2.3, 1.8)).to.equal(4);
     });
 
     it('equal negative numbers', () => {
@@ -24,11 +24,11 @@ describe('calculateNumber', () => {
     });
 
     it('positive and negative numbers', () => {
-      expect(calculateNumber('SUM', 2.0, -2.0)).to.equal( 0);
+      expect(calculateNumber('SUM', 2.0, -2.0)).to.equal(0);
     });
 
     it('0 and 0', () => {
-      expect(calculateNumber('SUM', 0.0, 0.0)).to.equal( 0);
+      expect(calculateNumber('SUM', 0.0, 0.0)).to.equal(0);
     });
   });
 
@@ -84,7 +84,7 @@ describe('calculateNumber', () => {
     });
 
     it('equal negative numbers', () => {
-      expect(calculateNumber('DIVIDE', -2.0, -2.0)).to.equal( 1);
+      expect(calculateNumber('DIVIDE', -2.0, -2.0)).to.equal(1);
     });
 
     it('equal rounded up numbers', () => {
